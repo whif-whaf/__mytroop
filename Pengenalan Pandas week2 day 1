@@ -1,0 +1,417 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+    },
+    "language_info": {
+      "codemirror_mode": {
+        "name": "ipython",
+        "version": 3
+      },
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "nbconvert_exporter": "python",
+      "pygments_lexer": "ipython3",
+      "version": "3.7.6"
+    },
+    "colab": {
+      "name": "usamahfikri04@gmail.com.ipynb",
+      "provenance": [],
+      "collapsed_sections": [],
+      "include_colab_link": true
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/whif-whaf/__mytroop/blob/sanberlearn/Pengenalan%20Pandas%20week2%20day%201\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "pkRsrSCJne8B",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "_mtYo0A_ne8E",
+        "colab_type": "text"
+      },
+      "source": [
+        "<h2>Quiz 1 : Membuat Objek DataFrames</h2>\n",
+        "\n",
+        "- Buatlah objek dataframes dari objek dictionary, Bebas!"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "MCoIXHsRne8F",
+        "colab_type": "code",
+        "outputId": "22c92545-327a-42dd-a0ff-c7c3d51e5caa",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 171
+        }
+      },
+      "source": [
+        "# Membuat dataframes dari dictionary\n",
+        "import pandas as pd\n",
+        "\n",
+        "obj = {\n",
+        "       'Mobil' : [500, 200, 130, 400],\n",
+        "       'Motor' : [700, 200, 300, 430]\n",
+        "}\n",
+        "pd.DataFrame (obj)"
+      ],
+      "execution_count": 12,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/html": [
+              "<div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>Mobil</th>\n",
+              "      <th>Motor</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>0</th>\n",
+              "      <td>500</td>\n",
+              "      <td>700</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>1</th>\n",
+              "      <td>200</td>\n",
+              "      <td>200</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2</th>\n",
+              "      <td>130</td>\n",
+              "      <td>300</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>3</th>\n",
+              "      <td>400</td>\n",
+              "      <td>430</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>"
+            ],
+            "text/plain": [
+              "   Mobil  Motor\n",
+              "0    500    700\n",
+              "1    200    200\n",
+              "2    130    300\n",
+              "3    400    430"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 12
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "CNHRpty1ne8J",
+        "colab_type": "text"
+      },
+      "source": [
+        "<h2>Quiz 2 : Membaca data dari file</h2>\n",
+        "\n",
+        "Download file bernama diamonds.csv, kemudian baca data tersebut dan assign ke dalam suatu variabel kemudian print."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "T7PyQntTne8J",
+        "colab_type": "code",
+        "outputId": "6966e92f-64cf-4d36-e393-5ac54c7ff63d",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 260
+        }
+      },
+      "source": [
+        "# Membaca data dan memasukannya kedalam suatu variabel\n",
+        "import pandas as pd\n",
+        "\n",
+        "csv = pd.read_csv('https://blog.sanbercode.com/wp-content/uploads/2020/04/diamonds-1.csv')\n",
+        "print(csv)"
+      ],
+      "execution_count": 32,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "       Unnamed: 0  carat        cut color  ... price     x     y     z\n",
+            "0               1   0.23      Ideal     E  ...   326  3.95  3.98  2.43\n",
+            "1               2   0.21    Premium     E  ...   326  3.89  3.84  2.31\n",
+            "2               3   0.23       Good     E  ...   327  4.05  4.07  2.31\n",
+            "3               4   0.29    Premium     I  ...   334  4.20  4.23  2.63\n",
+            "4               5   0.31       Good     J  ...   335  4.34  4.35  2.75\n",
+            "...           ...    ...        ...   ...  ...   ...   ...   ...   ...\n",
+            "53935       53936   0.72      Ideal     D  ...  2757  5.75  5.76  3.50\n",
+            "53936       53937   0.72       Good     D  ...  2757  5.69  5.75  3.61\n",
+            "53937       53938   0.70  Very Good     D  ...  2757  5.66  5.68  3.56\n",
+            "53938       53939   0.86    Premium     H  ...  2757  6.15  6.12  3.74\n",
+            "53939       53940   0.75      Ideal     D  ...  2757  5.83  5.87  3.64\n",
+            "\n",
+            "[53940 rows x 11 columns]\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "f2-Q2qaone8L",
+        "colab_type": "text"
+      },
+      "source": [
+        "Expected Result :\n",
+        "\n",
+        "![image.png](attachment:image.png)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "iDQQ6pMBne8M",
+        "colab_type": "text"
+      },
+      "source": [
+        "<h2>Quiz 3 : DataFrame vs Series</h2>\n",
+        "\n",
+        "- Apa perbedaan Series dengan list dan dictionary\n",
+        "- Apa perbedaan dataframe dan series\n",
+        "- Buatlah suatu data series"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "JEFRT3-Bne8M",
+        "colab_type": "text"
+      },
+      "source": [
+        "a. perbedaan series dengan list dan dictionary adalah : \n",
+        "\n",
+        "- Series : ketika di print Menampilkan index dan value, dan objek series tidak harus integer, bisa mempunyai key yang duplikat, memiliki kemampuan untuk slicing data tidak seperti Dictionary\n",
+        "\n",
+        "- List : ketika di print Hanya menampilkan value saja\n",
+        "\n",
+        "- Dictionary : tidak bisa slicing seperti Series\n",
+        "\n",
+        "b. Perbedaan dataframe dan series terletak pada struktur nya dan juga attribute dan method-method yang mereka miliki. "
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "03tjGRz9ne8N",
+        "colab_type": "code",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 121
+        },
+        "outputId": "7cdd8fd0-31d3-447e-ca12-6786ab732e85"
+      },
+      "source": [
+        "# code here\n",
+        "import pandas as pd\n",
+        "\n",
+        "a = pd.Series([1,2,3,4,5])\n",
+        "print (a)"
+      ],
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "0    1\n",
+            "1    2\n",
+            "2    3\n",
+            "3    4\n",
+            "4    5\n",
+            "dtype: int64\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "urz2gDmrne8P",
+        "colab_type": "text"
+      },
+      "source": [
+        "<h2>Quiz 4 : Pemeriksaan Data Sederhana</h2>\n",
+        "\n",
+        "Di quiz no 2 kamu telah membaca data tentang diamonds. pada soal ini cobalah suatu metode dari pandas untuk mengetahui beberapa data pertama dan beberapa data terakhir. kemudian sebutkan nilai dari :\n",
+        "- baris pertama dari column price\n",
+        "- baris terakhir dari column color\n",
+        "\n",
+        "tunjukan cara kalian menemukan nilai tersebut di block di bawah ini."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "RvX9XlvBne8P",
+        "colab_type": "code",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 87
+        },
+        "outputId": "b5dc5e4b-ab74-4191-a64f-2f81e992d007"
+      },
+      "source": [
+        "# code here\n",
+        "import pandas as pd\n",
+        "\n",
+        "csv = pd.read_csv('https://blog.sanbercode.com/wp-content/uploads/2020/04/diamonds-1.csv')\n",
+        "\n",
+        "print(csv.price.head(1))\n",
+        "print(csv.color.tail(1))"
+      ],
+      "execution_count": 30,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "0    326\n",
+            "Name: price, dtype: int64\n",
+            "53939    D\n",
+            "Name: color, dtype: object\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "7VyjGYHqne8S",
+        "colab_type": "text"
+      },
+      "source": [
+        "<h2>Quiz 5 : Deskriptif Statistik</h2>\n",
+        "\n",
+        "Jelaskan apa itu deskriptis statistik!"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "kbKN3alEne8S",
+        "colab_type": "text"
+      },
+      "source": [
+        "Deskriptis Statistik merupakan suatu metode yang berhubungan dengan pengumpulan atau penyajian data sampai memberi informasi yang berguna."
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "UeKHt7ZOne8T",
+        "colab_type": "text"
+      },
+      "source": [
+        "<h2>Quiz 6 : Practice Deskriptif Statistik</h2>\n",
+        "\n",
+        "- Gunakan suatu metode dari pandas untuk mengetahui deskriptif statistik dari suatu data\n",
+        "- Berapa nilai rata-rata dari column price\n",
+        "- Berapa nilai standar deviasi dari column depth\n",
+        "- Berapa nilai maximum dari column carat"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "gYyvGkGqne8T",
+        "colab_type": "code",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 69
+        },
+        "outputId": "7e8326d9-93a9-45a9-d91d-82ae20fd0a2e"
+      },
+      "source": [
+        "# code here\n",
+        "import pandas as pd\n",
+        "\n",
+        "csv = pd.read_csv('https://blog.sanbercode.com/wp-content/uploads/2020/04/diamonds-1.csv')\n",
+        "print(csv.price.mean())\n",
+        "print(csv.depth.std())\n",
+        "print(csv.carat.max())"
+      ],
+      "execution_count": 31,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "3932.799721913237\n",
+            "1.4326213188337733\n",
+            "5.01\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "p9ZdMllKne8W",
+        "colab_type": "text"
+      },
+      "source": [
+        ""
+      ]
+    }
+  ]
+}
