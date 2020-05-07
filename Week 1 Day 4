@@ -1,0 +1,478 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+    },
+    "language_info": {
+      "codemirror_mode": {
+        "name": "ipython",
+        "version": 3
+      },
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "nbconvert_exporter": "python",
+      "pygments_lexer": "ipython3",
+      "version": "3.7.7"
+    },
+    "colab": {
+      "name": "usamahfikri04@gmail.com.ipynb",
+      "provenance": [],
+      "collapsed_sections": [],
+      "include_colab_link": true
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/whif-whaf/__mytroop/blob/sanberlearn/day%204\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "a9HYUdCUsrKl",
+        "colab_type": "text"
+      },
+      "source": [
+        "<h2>Quiz 1 : Comparison Operator</h2>\n",
+        "\n",
+        "- Berikan contoh comparison dari tipe data string\n",
+        "- Berikan contoh comparison dari tipe data boolean\n",
+        "- Berikan contoh comparison dari tipe data integer"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "lXMCHZ71srKp",
+        "colab_type": "code",
+        "outputId": "52a1c3ca-b7e8-4e1d-d1b8-68581f452932",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 68
+        }
+      },
+      "source": [
+        "#string\n",
+        "a = 'haha'\n",
+        "if a == 'haha':\n",
+        "  print(\"String\")\n",
+        "\n",
+        "#boolean\n",
+        "b = 5\n",
+        "c = 9\n",
+        "print(b != c)\n",
+        "\n",
+        "#integer\n",
+        "d = 9\n",
+        "e = 10\n",
+        "if d == e:\n",
+        "  print (\"angkanya sama\")\n",
+        "else:\n",
+        "  print(\"Angkanya beda\")"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "String\n",
+            "True\n",
+            "Angkanya beda\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "IbNoZvVssrK5",
+        "colab_type": "text"
+      },
+      "source": [
+        "<h2>Quiz 2 : Boolean Comparison</h2>\n",
+        "\n",
+        "- Berikan contoh gabungan multiple comparison menggunkan Boolean Comparisin 'and'\n",
+        "- Berikan contoh gabungan multiple comparison menggunkan Boolean Comparisin 'or'\n",
+        "- Berikan contoh gabungan multiple comparison menggunkan Boolean Comparisin 'not'"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "7eU1vPLCsrK7",
+        "colab_type": "code",
+        "outputId": "fcc69181-f22d-430b-f0da-4146b77f788f",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 68
+        }
+      },
+      "source": [
+        "a=5\n",
+        "b=7 \n",
+        "#and \n",
+        "if a and b:\n",
+        "  print(\"sama\")\n",
+        "#or\n",
+        "if a or b:\n",
+        "  print(\"salah satu\")\n",
+        "#not\n",
+        "if a != b:\n",
+        "  print(\"Tidak Sama Dengan\")"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "sama\n",
+            "salah satu\n",
+            "Tidak Sama Dengan\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Yp_g_sPMsrLH",
+        "colab_type": "text"
+      },
+      "source": [
+        "<h2>Quiz 3 : If-Else Statement</h2>\n",
+        "\n",
+        "Lengkapi kode untuk menghasilkan suatu output yang di harapkan\n",
+        "\n",
+        "- Bualah sebuah if-else statement yang dimana akan mem-print 'Besar' jika ruangan adalah 'Kamar' dan ukuran lebih dari 12, kemudian mem-print 'Sedang' jika ruangan adalah 'Kamar' dan ukuran lebih dari 6 dan memprint 'Kecil' jika ruangan adalah 'Kamar' dan ukuran ruangan lebih kecil dan sama dengan 6."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "euRiRNupsrLK",
+        "colab_type": "code",
+        "outputId": "8c00dfcf-ef72-40ca-d9a1-8bb13e5443e1",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 34
+        }
+      },
+      "source": [
+        "ruangan = 'Kamar'\n",
+        "size = 20\n",
+        "\n",
+        "if ruangan == 'Kamar' and size >= 12 :\n",
+        "    print('Besar')\n",
+        "elif ruangan == 'Kamar' and size >= 6 :\n",
+        "    print('Sedang')\n",
+        "else :\n",
+        "    print('Kecil')"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Besar\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "IcoJXJT1srLW",
+        "colab_type": "text"
+      },
+      "source": [
+        "<h2>Quiz 4 : Comparison Operator dengan fungsi</h2>\n",
+        "\n",
+        "Buatlah sebuah fungsi yang menerima satu argument bertipe data numeric dan menghasilkan sebuah return sebagai berikut :\n",
+        "- menghasilkan return 'Aneh' jika nilai dari argument tersebut adalah bilangan ganjil\n",
+        "- menghasilkan return 'Tidak Aneh' jika nilai dari argument tersebut adalah bilangan genap dan diantara nilai 2 sampai 5 (2 dan 5 termasuk)\n",
+        "- menghasilkan return 'Aneh' jika nilai dari argument tersebut adalah bilangan genap dan diantara nilai 6 sampai 20 (6 dan 20 termasuk)\n",
+        "- menghasilkan return 'Tidak Aneh' jika nilai dari argument tersebut adalah bilangan genap dan lebih besari dari 20"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "g8F_qfEKsrLZ",
+        "colab_type": "code",
+        "outputId": "6cc1c7b9-8c93-482f-f960-4b5ea7ca73fd",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 34
+        }
+      },
+      "source": [
+        "# Buat fungsi\n",
+        "def bilangan (x):\n",
+        "  if x%2 != 0:\n",
+        "    return(\"Aneh\")\n",
+        "  elif x%2 == 0 and x>=2 and x<=5 :\n",
+        "    return(\"Tidak Aneh\")\n",
+        "  elif x%2 == 0 and x>=6 and x<=20:\n",
+        "    return(\"Aneh\")\n",
+        "  elif x%2 == 0 and x>=20:\n",
+        "    return(\"Tidak Aneh\")\n",
+        "  \n",
+        "bilangan(1)"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "'Aneh'"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 49
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "gf0D64xOsrLl",
+        "colab_type": "text"
+      },
+      "source": [
+        "<h2>Quiz 5 : While Loop dan For Loop</h2>\n",
+        "\n",
+        "- Apa perbedaan while loop dan for loop?\n",
+        "- Berikan contoh sederhana cara menggunakan while loop dan for loop"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "On3Eoq6FRftp",
+        "colab_type": "text"
+      },
+      "source": [
+        "For Loop melakukan perulangan berdasarkan jumlah element\n",
+        "\n",
+        "Sedangkan While Loop terus menerus melakukan looping sampai memenuhi suatu kondisi yang membuat dia harus berhenti.\n",
+        "\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "l7KIgpjHsrLo",
+        "colab_type": "code",
+        "outputId": "2dd68efe-fa13-4807-87bb-7855b4859f44",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 187
+        }
+      },
+      "source": [
+        "# Tulis Kode\n",
+        "# for loop\n",
+        "for i in range (3):\n",
+        "  print(\"Hallo SanberCode :D\")\n",
+        "\n",
+        "# While Loop\n",
+        "p = 0\n",
+        "while p < 7 :\n",
+        "  print(p)\n",
+        "  p += 1"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Hallo SanberCode :D\n",
+            "Hallo SanberCode :D\n",
+            "Hallo SanberCode :D\n",
+            "0\n",
+            "1\n",
+            "2\n",
+            "3\n",
+            "4\n",
+            "5\n",
+            "6\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "fZQpBGCgsrLz",
+        "colab_type": "text"
+      },
+      "source": [
+        "<h2>Quiz 6 : While Loop</h2>\n",
+        "    \n",
+        "Buatlah sebuah code while loop sebagai berikut :\n",
+        "- Buatlah suatu fungsi yang merima satu input nilai numeric\n",
+        "- Dalam fungsi, Buat sebuah while-loop dengan melakukan comparasi terhadap inputan tersebut, dimana looping/iterasi terus berjalan apabila nilai inputan tidak sama dengan 0\n",
+        "- Dalam setiap iterasi update nilai variable inputan itu, jika input lebih dari 0, maka kurangi variabel tersebut sebesar 1, selain itu tambahkan 1\n",
+        "- print nilai variable input dalam setiap awal iterasi"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "yOiqjrU2srL1",
+        "colab_type": "code",
+        "outputId": "91f21204-cf77-420a-e84b-3e07ce4c2ba5",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 187
+        }
+      },
+      "source": [
+        "a = 10\n",
+        "\n",
+        "def fungsi_while(a):\n",
+        "    while (a != 0):\n",
+        "      print(a)\n",
+        "      a -= 1\n",
+        "    else:\n",
+        "      a += 1\n",
+        "\n",
+        "fungsi_while(a)"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "10\n",
+            "9\n",
+            "8\n",
+            "7\n",
+            "6\n",
+            "5\n",
+            "4\n",
+            "3\n",
+            "2\n",
+            "1\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "lKzngRrlsrMD",
+        "colab_type": "text"
+      },
+      "source": [
+        "Expected Output :\n",
+        "\n",
+        "10\n",
+        "\n",
+        "9\n",
+        "\n",
+        "8\n",
+        "\n",
+        "7\n",
+        "\n",
+        "6\n",
+        "\n",
+        "5\n",
+        "\n",
+        "4\n",
+        "\n",
+        "3\n",
+        "\n",
+        "2\n",
+        "\n",
+        "1"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "IWg3Z_zZsrMG",
+        "colab_type": "text"
+      },
+      "source": [
+        "<h2>Quiz 7 : For Loop</h2>\n",
+        "    \n",
+        "Lengkapi kode untuk menghasilkan suatu output yang di harapkan:\n",
+        "\n",
+        "- Buatlah sebuah loop dengan mengiterasi sebuah objek list kemudian di kalikan dengan index dari list tersebut dan print hasilnya"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "_Jl5i7WKsrMI",
+        "colab_type": "code",
+        "outputId": "26c18725-f5c6-4d00-8cab-d59a42126a2e",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 102
+        }
+      },
+      "source": [
+        "obj_list= [1, 16, 11, 10, 5]\n",
+        "\n",
+        "# lengkapi code di bawah\n",
+        "for a,b in enumerate(obj_list):\n",
+        "    print(a*b)\n"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "0\n",
+            "16\n",
+            "22\n",
+            "30\n",
+            "20\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "OGawROjnsrMU",
+        "colab_type": "text"
+      },
+      "source": [
+        "Expected Output :\n",
+        "\n",
+        "0\n",
+        "\n",
+        "16\n",
+        "\n",
+        "22\n",
+        "\n",
+        "30\n",
+        "\n",
+        "20\n"
+      ]
+    }
+  ]
+}

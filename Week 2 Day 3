@@ -1,0 +1,728 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+    },
+    "language_info": {
+      "codemirror_mode": {
+        "name": "ipython",
+        "version": 3
+      },
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "nbconvert_exporter": "python",
+      "pygments_lexer": "ipython3",
+      "version": "3.7.7"
+    },
+    "colab": {
+      "name": "usamahfikri04@gmail.com.ipynb",
+      "provenance": [],
+      "collapsed_sections": [],
+      "include_colab_link": true
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/whif-whaf/__mytroop/blob/sanberlearn/Tugas%203%20Week%202\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "0kQhZ-5bKrxR",
+        "colab_type": "text"
+      },
+      "source": [
+        "<h2>Quiz 1 : Pivoting and Melting</h2>\n",
+        "\n",
+        "Jelaskan itu pivoting dan melting data"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "O7OpqeB9KrxX",
+        "colab_type": "text"
+      },
+      "source": [
+        "jawaban :\n",
+        "\n",
+        "Pivoting adalah suatu pengubahan bentuk data dengan memutar data yang terletak di baris menjadi column.\n",
+        "\n",
+        "Melting mengubah suatu data dengan memutar dari yang tadinya berada di posisi column menjadi di posisi row."
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "jImnOOlTKrxa",
+        "colab_type": "text"
+      },
+      "source": [
+        "<h2>Quiz 2 : Data structure Comprehension</h2>\n",
+        "\n",
+        "Data yang rapi adalah :\n",
+        "1. Setiap row menunjukan suatu unit observasi\n",
+        "2. Setiap column merupakan suatu unit variable\n",
+        "\n",
+        "Bagaimana pun, dalam menentukan unit observasi itu tergantung dari kasus yang di hadapi. sebagai seorang data scientist pasti akan menemukan berbagai bentuk struktur data. adalah sangat penting bagi seorang data scientist untuk dapat memahami dan menjelaskan setiap struktur data. Kemampuan memahami hubungan antara index baris, column dan isi data adalah kunci untuk memahami informasi apa yang data sedang beritahukan kepada kita.\n",
+        "\n",
+        "Di bawah ini terdapat 2 data yang berisi sama, tetapi memiliki struktur yang berbeda. Jelaskan perbedaan dari 2 struktur data tersebut"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "HYtZqGxLKrxc",
+        "colab_type": "text"
+      },
+      "source": [
+        "![alt text](https://drive.google.com/uc?id=1h13CDPzIjc-2XyRcyu-p1fet0Ep1gdMA)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "nn4EuLbnKrxf",
+        "colab_type": "text"
+      },
+      "source": [
+        "![alt text](https://drive.google.com/uc?id=12ji98ell5tNcCxeBzl4v8qqBtFMgDSr0)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "_fixNOUAKrxh",
+        "colab_type": "text"
+      },
+      "source": [
+        "Terdapat 2 gambar yang menunjukkan data, untuk gambar yang kedua menunjukkan data yang kurang baik atau berantakan, susah terbaca. Untuk gambar pertama kita dapat mudah membacanya karena data pertama menggunakan pivot table."
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Vxig2IeYKrxj",
+        "colab_type": "text"
+      },
+      "source": [
+        "<h2>Quiz 3 : Reshaping Data 1</h2>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "4Jp7bLWNKrxl",
+        "colab_type": "code",
+        "outputId": "bbed4ea8-9c07-4fb7-ea1b-5511dcd0ed36",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 421
+        }
+      },
+      "source": [
+        "import pandas as pd\n",
+        "import random\n",
+        "\n",
+        "data = {\n",
+        "    'Tipe Ujian' : ['UTS1', 'UAS1', 'UTS2', 'UAS2']*3,\n",
+        "    'Mata Pelajaran' : ['Fisika']*4 + ['Matematika']*4+['Statistika']*4,\n",
+        "    'Rata2 Waktu Belajar (menit)' : [random.choice(range(200, 800)) for i in range(12)],\n",
+        "    'Rata2 Nilai Ujian' : [random.choice(range(40, 100)) for i in range(12)] \n",
+        "}\n",
+        "df = pd.DataFrame(data)\n",
+        "df"
+      ],
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/html": [
+              "<div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>Tipe Ujian</th>\n",
+              "      <th>Mata Pelajaran</th>\n",
+              "      <th>Rata2 Waktu Belajar (menit)</th>\n",
+              "      <th>Rata2 Nilai Ujian</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>0</th>\n",
+              "      <td>UTS1</td>\n",
+              "      <td>Fisika</td>\n",
+              "      <td>488</td>\n",
+              "      <td>61</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>1</th>\n",
+              "      <td>UAS1</td>\n",
+              "      <td>Fisika</td>\n",
+              "      <td>236</td>\n",
+              "      <td>79</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2</th>\n",
+              "      <td>UTS2</td>\n",
+              "      <td>Fisika</td>\n",
+              "      <td>793</td>\n",
+              "      <td>92</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>3</th>\n",
+              "      <td>UAS2</td>\n",
+              "      <td>Fisika</td>\n",
+              "      <td>682</td>\n",
+              "      <td>40</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>4</th>\n",
+              "      <td>UTS1</td>\n",
+              "      <td>Matematika</td>\n",
+              "      <td>693</td>\n",
+              "      <td>50</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>5</th>\n",
+              "      <td>UAS1</td>\n",
+              "      <td>Matematika</td>\n",
+              "      <td>785</td>\n",
+              "      <td>57</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>6</th>\n",
+              "      <td>UTS2</td>\n",
+              "      <td>Matematika</td>\n",
+              "      <td>617</td>\n",
+              "      <td>85</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>7</th>\n",
+              "      <td>UAS2</td>\n",
+              "      <td>Matematika</td>\n",
+              "      <td>536</td>\n",
+              "      <td>56</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>8</th>\n",
+              "      <td>UTS1</td>\n",
+              "      <td>Statistika</td>\n",
+              "      <td>690</td>\n",
+              "      <td>82</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>9</th>\n",
+              "      <td>UAS1</td>\n",
+              "      <td>Statistika</td>\n",
+              "      <td>220</td>\n",
+              "      <td>79</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>10</th>\n",
+              "      <td>UTS2</td>\n",
+              "      <td>Statistika</td>\n",
+              "      <td>545</td>\n",
+              "      <td>82</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>11</th>\n",
+              "      <td>UAS2</td>\n",
+              "      <td>Statistika</td>\n",
+              "      <td>749</td>\n",
+              "      <td>40</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>"
+            ],
+            "text/plain": [
+              "   Tipe Ujian Mata Pelajaran  Rata2 Waktu Belajar (menit)  Rata2 Nilai Ujian\n",
+              "0        UTS1         Fisika                          488                 61\n",
+              "1        UAS1         Fisika                          236                 79\n",
+              "2        UTS2         Fisika                          793                 92\n",
+              "3        UAS2         Fisika                          682                 40\n",
+              "4        UTS1     Matematika                          693                 50\n",
+              "5        UAS1     Matematika                          785                 57\n",
+              "6        UTS2     Matematika                          617                 85\n",
+              "7        UAS2     Matematika                          536                 56\n",
+              "8        UTS1     Statistika                          690                 82\n",
+              "9        UAS1     Statistika                          220                 79\n",
+              "10       UTS2     Statistika                          545                 82\n",
+              "11       UAS2     Statistika                          749                 40"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 5
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "G3yKJFwTKrx8",
+        "colab_type": "text"
+      },
+      "source": [
+        "Perhatikan data di atas, kemudian ubahlah bentuknya agar sesuai yang di harapkan."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "ztFDyKDYKrx-",
+        "colab_type": "code",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 235
+        },
+        "outputId": "77e4e253-6cb3-4c28-f31f-5f083ffe5074"
+      },
+      "source": [
+        "# code here\n",
+        "table = pd.pivot_table(df, values=['Rata2 Waktu Belajar (menit)', 'Rata2 Nilai Ujian'], index=['Tipe Ujian'], columns=['Mata Pelajaran'])\n",
+        "\n",
+        "table\n"
+      ],
+      "execution_count": 15,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/html": [
+              "<div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead tr th {\n",
+              "        text-align: left;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead tr:last-of-type th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr>\n",
+              "      <th></th>\n",
+              "      <th colspan=\"3\" halign=\"left\">Rata2 Nilai Ujian</th>\n",
+              "      <th colspan=\"3\" halign=\"left\">Rata2 Waktu Belajar (menit)</th>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>Mata Pelajaran</th>\n",
+              "      <th>Fisika</th>\n",
+              "      <th>Matematika</th>\n",
+              "      <th>Statistika</th>\n",
+              "      <th>Fisika</th>\n",
+              "      <th>Matematika</th>\n",
+              "      <th>Statistika</th>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>Tipe Ujian</th>\n",
+              "      <th></th>\n",
+              "      <th></th>\n",
+              "      <th></th>\n",
+              "      <th></th>\n",
+              "      <th></th>\n",
+              "      <th></th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>UAS1</th>\n",
+              "      <td>79</td>\n",
+              "      <td>57</td>\n",
+              "      <td>79</td>\n",
+              "      <td>236</td>\n",
+              "      <td>785</td>\n",
+              "      <td>220</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>UAS2</th>\n",
+              "      <td>40</td>\n",
+              "      <td>56</td>\n",
+              "      <td>40</td>\n",
+              "      <td>682</td>\n",
+              "      <td>536</td>\n",
+              "      <td>749</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>UTS1</th>\n",
+              "      <td>61</td>\n",
+              "      <td>50</td>\n",
+              "      <td>82</td>\n",
+              "      <td>488</td>\n",
+              "      <td>693</td>\n",
+              "      <td>690</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>UTS2</th>\n",
+              "      <td>92</td>\n",
+              "      <td>85</td>\n",
+              "      <td>82</td>\n",
+              "      <td>793</td>\n",
+              "      <td>617</td>\n",
+              "      <td>545</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>"
+            ],
+            "text/plain": [
+              "               Rata2 Nilai Ujian             ... Rata2 Waktu Belajar (menit)           \n",
+              "Mata Pelajaran            Fisika Matematika  ...                  Matematika Statistika\n",
+              "Tipe Ujian                                   ...                                       \n",
+              "UAS1                          79         57  ...                         785        220\n",
+              "UAS2                          40         56  ...                         536        749\n",
+              "UTS1                          61         50  ...                         693        690\n",
+              "UTS2                          92         85  ...                         617        545\n",
+              "\n",
+              "[4 rows x 6 columns]"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 15
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "xA8ZlQErKryO",
+        "colab_type": "text"
+      },
+      "source": [
+        "Expected Result :\n",
+        "\n",
+        "![alt text](https://drive.google.com/uc?id=1XufsfqZe7-XZLsb92SpATexy-QRZE0ow)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "pXb8LRDWKryQ",
+        "colab_type": "text"
+      },
+      "source": [
+        "<h2>Quiz 4 : Reshaping Data 2</h2>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "LHe2XZyNKryS",
+        "colab_type": "code",
+        "outputId": "c86f395f-b751-49c4-9a33-4222f72ee5b2",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 297
+        }
+      },
+      "source": [
+        "import pandas as pd\n",
+        "\n",
+        "data = {\n",
+        "    'Hari' : ['Sabtu', 'Minggu'],\n",
+        "    'Kebun Binatang' : [271, 399],\n",
+        "    'Dufan' : [501, 700],\n",
+        "    'Disney' : [1000, 1001],\n",
+        "    'Bali' : [900, 803]\n",
+        "}\n",
+        "df = pd.DataFrame(data)#.set_index('Hari')\n",
+        "df.melt(id_vars=['Hari'], value_vars=['Kebun Binatang', 'Dufan', 'Disney', 'Bali'], var_name='Tempat Hiburan', value_name='Pengunjung')"
+      ],
+      "execution_count": 43,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/html": [
+              "<div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>Hari</th>\n",
+              "      <th>Tempat Hiburan</th>\n",
+              "      <th>Pengunjung</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>0</th>\n",
+              "      <td>Sabtu</td>\n",
+              "      <td>Kebun Binatang</td>\n",
+              "      <td>271</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>1</th>\n",
+              "      <td>Minggu</td>\n",
+              "      <td>Kebun Binatang</td>\n",
+              "      <td>399</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2</th>\n",
+              "      <td>Sabtu</td>\n",
+              "      <td>Dufan</td>\n",
+              "      <td>501</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>3</th>\n",
+              "      <td>Minggu</td>\n",
+              "      <td>Dufan</td>\n",
+              "      <td>700</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>4</th>\n",
+              "      <td>Sabtu</td>\n",
+              "      <td>Disney</td>\n",
+              "      <td>1000</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>5</th>\n",
+              "      <td>Minggu</td>\n",
+              "      <td>Disney</td>\n",
+              "      <td>1001</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>6</th>\n",
+              "      <td>Sabtu</td>\n",
+              "      <td>Bali</td>\n",
+              "      <td>900</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>7</th>\n",
+              "      <td>Minggu</td>\n",
+              "      <td>Bali</td>\n",
+              "      <td>803</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>"
+            ],
+            "text/plain": [
+              "     Hari  Tempat Hiburan  Pengunjung\n",
+              "0   Sabtu  Kebun Binatang         271\n",
+              "1  Minggu  Kebun Binatang         399\n",
+              "2   Sabtu           Dufan         501\n",
+              "3  Minggu           Dufan         700\n",
+              "4   Sabtu          Disney        1000\n",
+              "5  Minggu          Disney        1001\n",
+              "6   Sabtu            Bali         900\n",
+              "7  Minggu            Bali         803"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 43
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "w87S4Xl_Kryg",
+        "colab_type": "text"
+      },
+      "source": [
+        "diatas adalah data tentang jumlah pengunjung di berbagai tempat hiburan, ubahlah struktur data tersebut sehingga sesuai dengan hasil yang diharapkan."
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "d7_5dDsRKryi",
+        "colab_type": "text"
+      },
+      "source": [
+        "Expected Result :\n",
+        "\n",
+        "![alt text](https://drive.google.com/uc?id=159mIqcyfeD30EEcyZmmkovORa6cZDLtn)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "GGHgeYkEKryk",
+        "colab_type": "text"
+      },
+      "source": [
+        "<h2>Quiz 5 : Pivoting and Aggregating</h2>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "iKMM155KKryn",
+        "colab_type": "code",
+        "outputId": "4d4169a8-adb1-4332-b140-89b1e11b8937",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 173
+        }
+      },
+      "source": [
+        "import pandas as pd\n",
+        "\n",
+        "data = {\n",
+        "    'Tipe Ujian' : ['UTS1', 'UAS1']*3,\n",
+        "    'Mata Pelajaran' :['Statistika', 'Fisika', 'Fisika', 'Statistika', 'Fisika', 'Statistika'],\n",
+        "    'Jumlah Peserta' : [14, 17, 12, 16, 14, 13]\n",
+        "}\n",
+        "df = pd.DataFrame(data).set_index('Tipe Ujian')\n",
+        "pv = pd.pivot_table(df, index=['Tipe Ujian'], columns=['Mata Pelajaran'], values=['Jumlah Peserta'], aggfunc=sum)\n",
+        "pv"
+      ],
+      "execution_count": 51,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/html": [
+              "<div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead tr th {\n",
+              "        text-align: left;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead tr:last-of-type th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr>\n",
+              "      <th></th>\n",
+              "      <th colspan=\"2\" halign=\"left\">Jumlah Peserta</th>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>Mata Pelajaran</th>\n",
+              "      <th>Fisika</th>\n",
+              "      <th>Statistika</th>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>Tipe Ujian</th>\n",
+              "      <th></th>\n",
+              "      <th></th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>UAS1</th>\n",
+              "      <td>17</td>\n",
+              "      <td>29</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>UTS1</th>\n",
+              "      <td>26</td>\n",
+              "      <td>14</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>"
+            ],
+            "text/plain": [
+              "               Jumlah Peserta           \n",
+              "Mata Pelajaran         Fisika Statistika\n",
+              "Tipe Ujian                              \n",
+              "UAS1                       17         29\n",
+              "UTS1                       26         14"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 51
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "odnDYRM3Kryz",
+        "colab_type": "text"
+      },
+      "source": [
+        "Perhatikan bahwa data jumlah peserta ujian untuk suatu tipe ujian dan mata pelajaran tertentu ada yang duplikat, ubahlah struktur data tersebut dan lakukan aggregasi berjenis jumlah sehingga sesuai dengan hasil yang di harapkan\n",
+        "\n",
+        "Expected Result :\n",
+        "\n",
+        "![alt text](https://drive.google.com/uc?id=1emoz7orYR-0mCHffvAgM8j-V1P6yVHf0)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "gLKJlUYgKry3",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    }
+  ]
+}
